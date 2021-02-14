@@ -5,7 +5,11 @@ And it should be triggered by any change
 
 # Enable jenkins instance in docker
 
+<<<<<<< HEAD
 start a jenkin instance in a docker container.
+=======
+#KEY: start a jenkin instance in a docker container.
+>>>>>>> db35acdb389e5c528d774820cf0b2437734ccc53
 
 
 ## docs and image
