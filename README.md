@@ -5,11 +5,7 @@ And it should be triggered by any change
 
 # Enable jenkins instance in docker
 
-<<<<<<< HEAD
 start a jenkin instance in a docker container.
-=======
-#KEY: start a jenkin instance in a docker container.
->>>>>>> db35acdb389e5c528d774820cf0b2437734ccc53
 
 
 ## docs and image
@@ -34,7 +30,7 @@ http://$containerhost:8080/
 	* it will ask to install some standard plugins
 	* you will need access to the $HOME/jenkins/secrets/initialAdminPassword
 
-* this generally indicates that jenking instance is good 
+* this generally indicates that jenkins instance is good 
 
 2021-02-13 18:14:56.642+0000 [id=29]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
 
