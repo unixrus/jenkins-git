@@ -1,36 +1,35 @@
-# jenkins-git
-
-A simple project to test jenkins git integration
-And it should be triggered by any change
-
 # Enable jenkins instance in docker
 
-start a jenkin instance in a docker container.
+instructions to initialize a jenkin instance in a docker/podman container to learn the tool.
 
 
 ## docs and image
-pull down a copy of the docker file for jenkins.
-see [Jenkins web page](https://hub.docker.com/r/jenkins/jenkins)
+see [Jenkins web page](https://hub.docker.com/r/jenkins/jenkins) for jenkins container publisher and details.
 
-## pre-requisites
-docker enabled node.
+## node pre-requisites
+docker enabled node OR use podman in centos 8. if using podman, alias podman to docker and continue with the next steps or substitute podman in place of docker in the commands.
 
 ## steps to start jenkins instance.
 
-* $ mkdir $HOME/jenkins
-default id of jenkins in image is 1000, so best to match it.
-* $ sudo chown 1000 $HOME/jenkins
-then choose which docker image to pull
-* $ docker run --rm -p 8080:8080 -p 50000:50000 -v /$HOME/jenkins:/var/jenkins_home jenkins/jenkins:lts
-* $ docker run --rm -p 8080:8080 -p 50000:50000 -v /$HOME/jenkins:/var/jenkins_home jenkins/jenkins:lts-centos
+* this dir will persist all your work done with the jenkins container. even if you delete the container.
+	- $ mkdir $HOME/jenkins
 
-* connect to the docker host running jenkins in a browser
-http://$containerhost:8080/
-	* follow prompts to setup jenkins instance. 
-	* it will ask to install some standard plugins
-	* you will need access to the $HOME/jenkins/secrets/initialAdminPassword
+* default id of jenkins in image is 1000, so best to match it.
+	- $ sudo chown 1000 $HOME/jenkins
 
-* this generally indicates that jenkins instance is good 
+* then run the jenkins docker instance (needs internet to download container image)
+	- $ docker run -p 8080:8080 -p 50000:50000 -v /$HOME/jenkins:/var/jenkins_home jenkins/jenkins:lts-centos
+
+* connect to the container host running jenkins via a browser
+	- typically http://localhost:8080 )
+	- follow prompts to setup jenkins instance. 
+        - you will need access to the localhost:$HOME/jenkins/secrets/initialAdminPassword
+        - create the admin and regular user.
+        - it will ask to install some standard plugins.
+       
+* a functional jenkins instance is now ready. login with the freshly created jenkins user logins 
+
+* FYI- this generally indicates that jenkins instance is good 
 
 2021-02-13 18:14:56.642+0000 [id=29]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
 
